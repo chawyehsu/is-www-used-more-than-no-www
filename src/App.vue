@@ -15,13 +15,13 @@
       </p>
       <ul>
         <li>
-          <a :href="sites.www.url" target="_blank">
+          <a href="https://github.com/h404bi/is-www-used-more-than-no-www/blob/master/public/sites.json" target="_blank" title="View sites use www">
             <www-icon/>
             <span>{{ wwwCount | formatNumber }}</span>
           </a>
         </li>
         <li>
-          <a :href="sites.nowww.url" target="_blank">
+          <a href="https://github.com/h404bi/is-www-used-more-than-no-www/blob/master/public/sites.json" target="_blank" title="View sites don't use www">
             <nowww-icon/>
             <span>{{ nowwwCount | formatNumber }}</span>
           </a>
