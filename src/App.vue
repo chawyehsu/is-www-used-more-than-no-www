@@ -47,7 +47,9 @@ import axios from 'axios'
 import GithubCorner from './components/GithubCorner'
 import { WwwIcon, NowwwIcon } from './components/icons'
 
-const DATA_ENDPOINT = process.env.NODE_ENV === 'production' ? 'http://127.0.0.1:8080/sites.json' : 'http://127.0.0.1:8080/sites.json'
+const PROD_ENDPOINT = 'https://cdn.rawgit.com/h404bi/is-www-used-more-than-no-www/91056e55/public/sites.json'
+const DEV_ENDPOINT = 'http://127.0.0.1:8080/sites.json'
+const DATA_ENDPOINT = process.env.NODE_ENV === 'production' ? PROD_ENDPOINT : DEV_ENDPOINT
 
 export default {
   name: 'App',
