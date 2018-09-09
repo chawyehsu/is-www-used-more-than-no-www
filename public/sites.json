@@ -1,20 +1,27 @@
 {
     "sites": {
         "www": [
+            "www.acfun.cn",
             "www.baidu.com",
+            "www.bilibili.com",
             "www.cloudflare.com",
             "www.facebook.com",
             "www.google.com",
             "www.instagram.com",
             "www.mediafire.com",
             "www.microsoft.com",
+            "www.qq.com",
+            "www.reddit.com",
+            "www.twitch.tv",
             "www.v2ex.com",
             "www.yes-www.org",
             "www.youtube.com",
             "www.zhihu.com"
         ],
         "nowww": [
+            "bitbucket.org",
             "github.com",
+            "gitlab.com",
             "segmentfault.com",
             "soundcloud.com",
             "stackoverflow.com",
