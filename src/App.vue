@@ -1,31 +1,29 @@
 <template>
   <div id="app">
     <github-corner/>
-    <p>Has Vue passed React yet?</p>
-    <template v-if="repos">
-      <h1 v-if="!tie">{{ vueHasPassedReact ? 'YES' : 'NO' }}</h1>
+    <p>Is www used more than no-www?</p>
+    <template v-if="sites">
+      <h1 v-if="!tie">{{ wwwIsUsedMoreThanNowww ? 'YES' : 'NO' }}</h1>
       <h1 :class="{ pad : tie }" v-else>TIE!</h1>
       <p>
-        <small v-if="!vueHasPassedReact && !tie" class="away">
-          Only {{ reactStars - vueStars | formatNumber }} {{ reactStars - vueStars === 1 ? 'star' : 'stars'}} away!
+        <small v-if="!wwwIsUsedMoreThanNowww && !tie" class="away">
+          Only {{ nowwwCount - wwwCount | formatNumber }} {{ nowwwCount - wwwCount === 1 ? 'site' : 'sites'}} away!
         </small>
-        <small v-else-if="vueHasPassedReact && !tie" class="ahead">
-          Ahead by {{ vueStars - reactStars | formatNumber }} {{ vueStars - reactStars === 1 ? 'star' : 'stars'}}!
+        <small v-else-if="wwwIsUsedMoreThanNowww && !tie" class="ahead">
+          Ahead by {{ wwwCount - nowwwCount | formatNumber }} {{ wwwCount - nowwwCount === 1 ? 'site' : 'sites'}}!
         </small>
       </p>
       <ul>
         <li>
-          <a :href="repos.vue.url" target="_blank">
-            <vue-icon/>
-            <span>{{ vueStars | formatNumber }}</span>
-            <star-icon/>
+          <a :href="sites.www.url" target="_blank">
+            <www-icon/>
+            <span>{{ wwwCount | formatNumber }}</span>
           </a>
         </li>
         <li>
-          <a :href="repos.react.url" target="_blank">
-            <react-icon/>
-            <span>{{ reactStars | formatNumber }}</span>
-            <star-icon/>
+          <a :href="sites.nowww.url" target="_blank">
+            <nowww-icon/>
+            <span>{{ nowwwCount | formatNumber }}</span>
           </a>
         </li>
       </ul>
@@ -47,50 +45,49 @@
 <script>
 import axios from 'axios'
 import GithubCorner from './components/GithubCorner'
-import { VueIcon, ReactIcon, StarIcon } from './components/icons'
+import { WwwIcon, NowwwIcon } from './components/icons'
 
-const FUNCTIONS_ENDPOINT = 'https://wt-13e53fa81a1f88b8fd161c9e57aeaac4-0.sandbox.auth0-extend.com/fetchGithubStars'
+const DATA_ENDPOINT = process.env.NODE_ENV === 'production' ? 'http://127.0.0.1:8080/sites.json' : 'http://127.0.0.1:8080/sites.json'
 
 export default {
   name: 'App',
 
   data() {
     return {
-      repos: null,
+      sites: null,
       error: false,
       reloading: false
     }
   },
 
   components: {
-    VueIcon,
-    ReactIcon,
-    StarIcon,
+    WwwIcon,
+    NowwwIcon,
     GithubCorner
   },
 
   mounted() {
-    this.fetchRepos()
+    this.fetchData()
     if ('ontouchstart' in window || navigator.msMaxTouchPoints) {
       document.body.classList.remove('no-touch')
     }
   },
 
   computed: {
-    vueHasPassedReact() {
-      return this.vueStars > this.reactStars
+    wwwIsUsedMoreThanNowww() {
+      return this.wwwCount > this.nowwwCount
     },
 
-    vueStars() {
-      return this.repos.vue.stargazers.totalCount
+    wwwCount() {
+      return this.sites.www.length
     },
 
-    reactStars() {
-      return this.repos.react.stargazers.totalCount
+    nowwwCount() {
+      return this.sites.nowww.length
     },
 
     tie() {
-      return this.vueStars === this.reactStars
+      return this.wwwCount === this.nowwwCount
     }
   },
 
@@ -101,28 +98,20 @@ export default {
   },
 
   methods: {
-    async fetchRepos() {
-      try {
-        const { data: res } = await axios.get(FUNCTIONS_ENDPOINT)
-        if (res.errors && res.errors.length) {
-          this.error = true
-          this.repos = null
-          // eslint-disable-next-line
-          console.log(res.errors)
-        } else {
-          this.error = true
-          this.repos = res.data
-        }
-      } catch (err) {
+    async fetchData() {
+      await axios.get(`${DATA_ENDPOINT}?_t=${Math.round(new Date().getTime())}`).then(res => {
+        this.sites = res.data.sites
+      }).catch(err => {
+        this.error = true
         // eslint-disable-next-line
         console.log(err)
-      }
+      })
     },
 
     async reload() {
       if (this.reloading) return
       this.reloading = true
-      await this.fetchRepos()
+      await this.fetchData()
       setTimeout(() => {
         this.reloading = false
       }, 900)
@@ -203,6 +192,7 @@ li a {
 li a > svg {
   display: block;
   width: 22px;
+  height: 22px;
 }
 
 li a > * {

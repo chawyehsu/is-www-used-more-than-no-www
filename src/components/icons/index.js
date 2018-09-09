@@ -1,9 +1,7 @@
-import VueIcon from './VueIcon.vue'
-import ReactIcon from './ReactIcon.vue'
-import StarIcon from './StarIcon.vue'
+import WwwIcon from './WwwIcon.vue'
+import NowwwIcon from './NowwwIcon.vue'
 
 export {
-  VueIcon,
-  ReactIcon,
-  StarIcon
+  WwwIcon,
+  NowwwIcon
 }

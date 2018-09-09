@@ -1,6 +1,6 @@
-# Has Vue passed React yet?
+# Is www used more than no-www?
 
-> Just a fun little site to compare GitHub stars of Vue and React
+> Just a fun little site to compare the amount of www sites and no-www sites
 
 ![preview](preview.png)
 
@@ -9,14 +9,14 @@
 To run this locally, clone the repo and use Yarn or NPM to install the dependencies. (You’ll also need Node.js installed)
 
 ```bash
-git clone https://github.com/stursby/hasvuepassedreactyet.git
-cd hasvuepassedreactyet
+git clone https://github.com/h404bi/is-www-used-more-than-no-www
+cd is-www-used-more-than-no-www
 yarn
 ```
 
 ### Development
 
-Start a dev server on [http://localhost:8080](http://localhost:8080)
+Start a dev server on [http://127.0.0.1:8080](http://127.0.0.1:8080)
 
 ```bash
 yarn dev
