@@ -2,11 +2,24 @@
     "sites": {
         "www": [
             "www.baidu.com",
+            "www.cloudflare.com",
             "www.facebook.com",
-            "www.google.com"
+            "www.google.com",
+            "www.instagram.com",
+            "www.mediafire.com",
+            "www.microsoft.com",
+            "www.v2ex.com",
+            "www.yes-www.org",
+            "www.youtube.com",
+            "www.zhihu.com"
         ],
         "nowww": [
             "github.com",
+            "segmentfault.com",
+            "soundcloud.com",
+            "stackoverflow.com",
+            "steamcommunity.com",
+            "twitter.com",
             "weibo.com"
         ]
     }
