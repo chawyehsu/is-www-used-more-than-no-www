@@ -28,6 +28,31 @@ To build for prod, run the following:
 yarn build
 ```
 
+### Contributions (Add sites)
+
+Edit [`sites.json`](public/sites.json) file, add your site domain to corresponding array.
+Please keep the domains array **unique sort**，then open a pull-request and wait. :D
+
+**FAQ: how to see a site is using www or not?**
+
+Use `curl -I <domain>` to see the response header, and your browser to determine it! e.g.:
+
+```bash
+$ curl -I https://www.twitter.com
+HTTP/1.1 301 Moved Permanently
+content-length: 0
+date: Sun, 09 Sep 2018 08:50:56 GMT
+location: https://twitter.com/
+server: tsa_k
+...
+```
+
+### Resource
+
+- [https://www.yes-www.org/](https://www.yes-www.org/)
+- [https://dropwww.com/](https://dropwww.com/)
+- [http://no-www.org/](http://no-www.org/)
+
 ### Credit
 
 - The original source code is forked from [hasvuepassedreactyet](https://github.com/stursby/hasvuepassedreactyet).
