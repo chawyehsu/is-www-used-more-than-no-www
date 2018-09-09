@@ -1,0 +1,13 @@
+{
+    "sites": {
+        "www": [
+            "www.baidu.com",
+            "www.facebook.com",
+            "www.google.com"
+        ],
+        "nowww": [
+            "github.com",
+            "weibo.com"
+        ]
+    }
+}
