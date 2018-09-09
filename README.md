@@ -2,6 +2,8 @@
 
 > Just a fun little site to compare the amount of www sites and no-www sites
 
+**WHY** [Google Chrome 69 kills off www in URLs](https://news.ycombinator.com/item?id=17927972)?
+
 ### Getting Started
 
 To run this locally, clone the repo and use Yarn or NPM to install the dependencies. (You’ll also need Node.js installed)
