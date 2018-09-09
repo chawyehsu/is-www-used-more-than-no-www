@@ -30,4 +30,5 @@ yarn build
 
 ### Credit
 
-The original source code is forked from [hasvuepassedreactyet](https://github.com/stursby/hasvuepassedreactyet).
+- The original source code is forked from [hasvuepassedreactyet](https://github.com/stursby/hasvuepassedreactyet).
+- The icon is from [Flaticon](https://www.flaticon.com).
