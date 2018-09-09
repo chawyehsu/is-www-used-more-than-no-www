@@ -31,7 +31,7 @@ yarn build
 ### Contributions (Add sites)
 
 Edit [`sites.json`](public/sites.json) file, add your site domain to corresponding array.
-Please keep the domains array **unique sort**，then open a pull-request and wait. :D
+Please keep the domains array **unique sort**, then open a pull-request and wait. :D
 
 **FAQ: how to see a site is using www or not?**
 
